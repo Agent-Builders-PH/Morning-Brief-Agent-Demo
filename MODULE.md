@@ -574,6 +574,8 @@ Watch the output: you'll see the agent call `fetch_all_events`, then answer. **I
 
 `add_datetime_to_context=True` matters: Claude doesn't know today's date unless you tell it. In Phase 2, `main.py` goes further and hands it the exact window.
 
+> **Times look off by a few hours?** That's expected here, and it's a lesson. The calendar tool's docstring asks for times like `2026-10-16T00:00:00` with no timezone, and the toolkit treats those as **UTC**, so "midnight" is really 8:00 AM in Manila. You might see last night's events or miss early ones. Phase 2 fixes this by handing Claude the exact window with the `+08:00` offset.
+
 ---
 
 ## 7. Phase 2: both sources, fixed format
