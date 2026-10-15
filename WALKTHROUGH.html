@@ -175,7 +175,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
 /* Architecture tab: an isometric line figure (after hairline) above a mode switch and an explainer card. */
-.arch { display: grid; gap: 14px; }
+.arch { display: grid; gap: 24px; }
 .arch[hidden], .arch [hidden] { display: none !important; }
 .arch-fig { position: relative; border: 1px solid var(--line); border-radius: 14px; background: var(--fig-plate); overflow: hidden; }
 .arch-tag, .arch-read { position: absolute; top: 11px; z-index: 1; font: 11px/1.2 var(--font-mono); letter-spacing: 0.02em; color: var(--muted); pointer-events: none; }
@@ -201,12 +201,12 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var
 .arch-svg .dot.bad { fill: var(--bad); }
 .arch-svg text { stroke: none; }
 .arch-svg .lab { cursor: pointer; transition: opacity 260ms; }
-.arch-svg .ln { font: 600 12.5px var(--font-display); fill: var(--ink); transition: fill 260ms; }
+.arch-svg .ln { font: 600 14.5px var(--font-display); fill: var(--ink); transition: fill 260ms; }
 .arch-svg .lf { font: 10.5px var(--font-mono); fill: var(--muted); }
 .arch-svg .lab.on .ln { fill: var(--fig-hi); }
 .arch-svg .lab.bad .ln { fill: var(--bad); }
 .arch-svg .lab.ghost { opacity: 0.3; }
-.arch-svg .lp { font: 600 10px var(--font-mono); fill: var(--muted); letter-spacing: 0.12em; }
+.arch-svg .lp { font: 600 10.5px var(--font-mono); fill: var(--muted); letter-spacing: 0.18em; }
 .arch-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 .arch-key { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 14.5px; color: var(--muted); margin: 0; padding: 0; list-style: none; }
@@ -222,12 +222,13 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var
 .arch-btn.sq-btn { min-width: 2.4em; text-align: center; }
 .arch-count { font: 13px var(--font-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
 
-.arch-pane { display: grid; gap: 14px; }
-.arch-two { display: grid; gap: 14px; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: start; }
+.arch-pane { display: grid; gap: 20px; }
+.arch-two { display: grid; gap: 20px; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: start; }
 @media (max-width: 760px) { .arch-two { grid-template-columns: minmax(0, 1fr); } }
 
-.arch-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; display: grid; gap: 10px; min-width: 0; }
-.arch-card h3 { font-family: var(--font-display); font-size: 20px; line-height: 1.25; margin: 0; text-wrap: balance; }
+.arch-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px 28px; display: grid; gap: 16px; min-width: 0; align-content: start; }
+.arch-card h3 { font-family: var(--font-display); font-size: 24px; font-weight: 600; line-height: 1.2; margin: -6px 0 0; text-wrap: balance; }
+.arch-card h3.x { color: var(--bad); }
 .arch-kicker { font: 12px/1.4 var(--font-mono); color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin: 0; }
 .arch-card p, .arch-card ul, .arch-card ol { margin: 0; max-width: 68ch; }
 .arch-card ul, .arch-card ol { padding-left: 1.2em; display: grid; gap: 4px; }
@@ -250,14 +251,27 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var
 .arch-chipgroup > span { font: 11.5px/2.4 var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
 @media (max-width: 520px) { .arch-chipgroup { grid-template-columns: minmax(0, 1fr); gap: 4px; } .arch-chipgroup > span { line-height: 1.4; } }
 
-.arch-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
-.arch-steps button { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 2.1em minmax(0, 1fr); gap: 8px; width: 100%; padding: 5px 8px; border-radius: 8px; font-size: 15px; line-height: 1.4; color: var(--muted); }
+.arch-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.arch-steps button { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 2.1em minmax(0, 1fr); gap: 8px; width: 100%; padding: 8px 12px; border-radius: 10px; font-size: 16px; line-height: 1.35; color: var(--muted); }
 .arch-steps button:hover { color: var(--ink); }
 .arch-steps button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .arch-steps button[aria-current="step"] { background: var(--accent-soft); color: var(--ink); }
 .arch-steps .n { font: 12.5px/1.75 var(--font-mono); font-variant-numeric: tabular-nums; }
 .arch-steps .x { color: var(--bad); }
 .arch-credit { font-size: 13.5px; color: var(--muted); margin: 0; }
+
+.arch-one { font-size: 19px; line-height: 1.55; color: var(--ink); max-width: 46ch !important; }
+.arch-facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 22px; margin: 4px 0 0; font-size: 16px; }
+.arch-facts dt { font: 11.5px/1.9 var(--font-mono); color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.arch-facts dd { margin: 0; min-width: 0; }
+.arch-watch { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 22px; font-size: 16px; line-height: 1.5; border-top: 1px solid var(--line); padding-top: 16px; margin-top: 2px !important; }
+.arch-watch > span:first-child { font: 11.5px/2 var(--font-mono); color: var(--bad); letter-spacing: 0.08em; text-transform: uppercase; }
+.arch-hint { color: var(--muted); font-size: 16px; }
+.arch-bubble.bad { background: color-mix(in srgb, var(--bad) 14%, transparent); }
+.arch-adds { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.arch-adds b { font: 11.5px var(--font-mono); color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-right: 6px; }
+.arch-adds span { font-size: 15px; padding: 4px 12px; border-radius: 999px; background: var(--accent-soft); }
+@media (max-width: 520px) { .arch-card { padding: 20px 18px; } .arch-one { font-size: 17.5px; } .arch-watch { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
 </style>
 
 </head>
@@ -300,7 +314,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var
 <section id="arch" role="tabpanel" aria-labelledby="tab-arch" class="arch">
   <div class="part-intro">
     <h2>What you're building</h2>
-    <p>One agent, four cloud services and a daily schedule. Point at or tap any part to see what it does and where it lives in the code. Follow a run to watch one morning step by step, or build the system up phase by phase.</p>
+    <p>Point at any part. Follow a run. Or watch it grow, phase by phase.</p>
   </div>
 
   <div class="arch-fig" id="arch-fig">
@@ -313,17 +327,17 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var
   </div>
 
   <ul class="arch-key" id="arch-key" aria-label="How to read the figure">
-    <li data-kind="code"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>Your Python code</li>
+    <li data-kind="code"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>Your code</li>
     <li data-kind="agent"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>The agent loop</li>
     <li data-kind="cloud"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>A cloud API</li>
-    <li data-kind="gh"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>GitHub schedule and secrets</li>
-    <li data-kind="link"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>A call between parts</li>
+    <li data-kind="gh"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>GitHub</li>
+    <li data-kind="link"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>A call</li>
   </ul>
 
   <div class="arch-modes" role="group" aria-label="Diagram mode">
-    <button class="arch-btn" type="button" data-mode="explore" aria-pressed="true">Explore the parts</button>
+    <button class="arch-btn" type="button" data-mode="explore" aria-pressed="true">Explore</button>
     <button class="arch-btn" type="button" data-mode="run" aria-pressed="false">Follow a run</button>
-    <button class="arch-btn" type="button" data-mode="phase" aria-pressed="false">Build it by phase</button>
+    <button class="arch-btn" type="button" data-mode="phase" aria-pressed="false">By phase</button>
   </div>
 
   <div class="arch-pane" id="arch-pane-explore">
@@ -351,7 +365,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var
     <article class="arch-card" id="arch-phasecard" aria-live="polite"></article>
   </div>
 
-  <p class="arch-credit">The figure follows the drawing style of <a href="https://github.com/lucasmarkes/hairline" target="_blank" rel="noopener">hairline</a> by Lucas Marques (MIT License): rounded isometric slabs, one stroke weight, and only the outline lights up.</p>
+  <p class="arch-credit">Drawing style: <a href="https://github.com/lucasmarkes/hairline" target="_blank" rel="noopener">hairline</a> by Lucas Marques (MIT).</p>
 </section>
 
 
@@ -1132,14 +1146,14 @@ gh run watch -R $repo</code></pre></div>
     { id: "main", x: 95, y: 105, h: 15, H: 11, kind: "code", phase: 2, rest: 1.2, name: "main.py", file: "run() · today_window()" },
     { id: "log", x: 95, y: 162, h: 12, H: 6, kind: "log", phase: 2, rest: 0, name: "Run log", file: "log_run()" },
     { id: "instructions", x: 165, y: 162, h: 13, H: 6, kind: "doc", phase: 2, rest: 0.5, name: "Instructions", file: "brief/prompt.py" },
-    { id: "agent", x: 165, y: 95, h: 20, H: 17, kind: "agent", phase: 0, rest: 2, name: "Agno Agent", file: "agent.run()" },
+    { id: "agent", x: 165, y: 95, h: 20, H: 17, kind: "agent", phase: 0, rest: 2, name: "The agent", file: "agent.run()" },
     { id: "caltool", x: 110, y: 30, h: 13, H: 9, kind: "tool", phase: 1, rest: 0.6, name: "Calendar tool", file: "fetch_all_events" },
     { id: "todotool", x: 220, y: 30, h: 13, H: 9, kind: "tool", phase: 0, rest: 1, name: "To-do tool", file: "get_todays_tasks()" },
     { id: "guards", x: 235, y: 130, h: 14, H: 10, kind: "guard", phase: 2, rest: 0.3, name: "Guards", file: "check_run() · validate()" },
     { id: "deliver", x: 290, y: 72, h: 14, H: 9, kind: "code", phase: 3, rest: 0.9, name: "Delivery", file: "brief/deliver.py" },
     { id: "gcal", x: 110, y: -70, h: 14, H: 15, kind: "cloud", phase: 1, rest: 0, name: "Google Calendar", file: "calendar.readonly" },
-    { id: "claude", x: 165, y: -70, h: 15, H: 17, kind: "cloud", phase: 0, rest: 0.8, name: "Claude API", file: "claude-sonnet-5-5" },
-    { id: "todoist", x: 220, y: -70, h: 14, H: 15, kind: "cloud", phase: 0, rest: 0.4, name: "Todoist API", file: "today | overdue" },
+    { id: "claude", x: 165, y: -70, h: 15, H: 17, kind: "cloud", phase: 0, rest: 0.8, name: "Claude", file: "claude-sonnet-5-5" },
+    { id: "todoist", x: 220, y: -70, h: 14, H: 15, kind: "cloud", phase: 0, rest: 0.4, name: "Todoist", file: "today | overdue" },
     { id: "telegram", x: 290, y: -70, h: 14, H: 15, kind: "cloud", phase: 3, rest: 1.2, name: "Telegram", file: "sendMessage" }
   ];
   var LINKS = [
@@ -1158,7 +1172,7 @@ gh run watch -R $repo</code></pre></div>
     ["deliver", "telegram", [[290, 72], [290, -70]]]
   ];
   // Spread the plan out so labels have room; tile sizes stay the same.
-  var K = 1.25;
+  var K = 1.42;
   TILES.forEach(function (t) { t.x *= K; t.y *= K; });
   LINKS.forEach(function (L) { L[2] = L[2].map(function (q) { return [q[0] * K, q[1] * K]; }); });
   PLATES.forEach(function (p) { p.x0 *= K; p.y0 *= K; p.x1 *= K; p.y1 *= K; });
@@ -1166,147 +1180,72 @@ gh run watch -R $repo</code></pre></div>
   var BY = {};
   TILES.forEach(function (t) { BY[t.id] = t; });
 
-  var GROUPS = [
-    ["GitHub", ["cron", "secrets"]],
-    ["Your code", ["main", "instructions", "todotool", "guards", "log", "deliver"]],
-    ["Agno", ["agent", "caltool"]],
-    ["Cloud APIs", ["claude", "gcal", "todoist", "telegram"]]
-  ];
 
   /* ---------- What each part is (shown in the card) ---------- */
-  var SAMPLE = "Morning brief · 2026-10-16\n⏰ Standup at 9:30 AM; leave by 9:00 to make it in person.\n📅 4 meetings, 3.5 hours booked; longest free block 10:30 AM–12:30 PM.\n✅ Finish the Q4 budget draft (priority 1).\n⚠️ Overdue: send the venue deposit, due yesterday.\n💡 2:00 and 2:30 PM calls run back to back; prep notes at lunch.";
+  var SAMPLE = "Morning brief · 2026-10-16\n⏰ Standup at 9:30 AM. Leave by 9:00.\n📅 4 meetings. Free 10:30 AM–12:30 PM.\n✅ Finish the Q4 budget draft.\n⚠️ Overdue: venue deposit.\n💡 2:00 and 2:30 PM calls are back to back.";
   var D = {
-    overview: {
-      kicker: "Start here",
-      title: "A loop, two tools, and a lot of guarding",
-      body: "<p>Read the figure in three layers.</p><ul><li><b>GitHub</b> (front left) wakes the job at 6:45 AM and hands it your keys.</li><li><b>Your code</b> runs on GitHub's machine: <code>main.py</code> sets up the run, the agent loops, the guards check the answer, and delivery sends it.</li><li><b>Cloud APIs</b> (the stacked slabs at the back) do the rest: Claude decides, Google Calendar and Todoist supply the facts, Telegram delivers.</li></ul><p>The agent in the middle is a loop. Claude asks for a tool, your code runs it, and Claude reads the result, until it has enough to write five bullets.</p><p class=\"arch-where\">Point at or tap any part. With the figure focused, the arrow keys step through the parts in the order a run uses them.</p>"
-    },
-    cron: {
-      kicker: "GitHub Actions · Phase 4 · TODO 4.1", title: "Daily trigger", where: "<code>.github/workflows/brief.yml</code> → <code>on: schedule</code>",
-      body: "<p>Cron times are UTC, so <code>45 22 * * *</code> means 22:45 UTC, which is 6:45 AM in Manila. Each run gets a fresh Ubuntu machine that installs Python 3.12 and the pinned packages, and stops after 10 minutes at most.</p><p>The schedule only runs once the repo variable <code>MORNING_BRIEF_ENABLED</code> is <code>true</code>. The <b>Run workflow</b> button always works, which is how you test it.</p>",
-      code: "on:\n  schedule:\n    - cron: \"45 22 * * *\"   # 06:45 Asia/Manila\n  workflow_dispatch: {}",
-      breaks: "Forget the 8-hour offset and the brief arrives at 2:45 PM."
-    },
-    secrets: {
-      kicker: "GitHub Actions · Phase 4 · TODO 4.2", title: "Secrets", where: "Repo <b>Settings → Secrets</b>, passed in under <code>env:</code> in <code>brief.yml</code>",
-      body: "<p>Six encrypted values become environment variables for the run: <code>ANTHROPIC_API_KEY</code>, <code>TODOIST_API_TOKEN</code>, <code>TELEGRAM_BOT_TOKEN</code>, <code>TELEGRAM_CHAT_ID</code>, <code>GOOGLE_CREDENTIALS</code> and <code>GOOGLE_TOKEN</code>. The workflow writes the two Google values back into <code>credentials.json</code> and <code>token.json</code>.</p><p><code>GOOGLE_OAUTH_NONINTERACTIVE=true</code> tells Agno there is no browser on this machine, so a dead login fails at once instead of hanging until the timeout.</p>",
-      breaks: "Anyone can read the logs of a public repo. Run the schedule from your own private copy."
-    },
-    main: {
-      kicker: "Your code · Phase 2 · TODO 2.5 – 2.7", title: "main.py", where: "<code>today_window()</code>, <code>build_prompt()</code>, <code>run()</code>, <code>main()</code>",
-      body: "<p>The conductor. It works out today in Asia/Manila (midnight to midnight, <code>+08:00</code>), writes those exact bounds into the prompt, and runs the agent at most twice. The second attempt only happens when the answer had the wrong shape.</p><p>Any exception ends in <code>send_failure()</code>. <code>main.py</code> then re-raises, so the Actions run turns red and GitHub emails you. <code>--dry-run</code> prints the brief instead of sending it.</p>",
-      code: "Today is Friday, October 16, 2026. Timezone Asia/Manila (+08:00).\nFetch events from 2026-10-16T00:00:00+08:00 to 2026-10-17T00:00:00+08:00,\nthen today's tasks, then write the brief.",
-      breaks: "Without explicit +08:00 bounds, Google reads the times as UTC and the day shifts by eight hours."
-    },
-    instructions: {
-      kicker: "Your code · Phase 2 · TODO 2.3", title: "Instructions", where: "<code>brief/prompt.py</code> → <code>INSTRUCTIONS</code> (13 rules)",
-      body: "<p>The system prompt. It tells Claude to call <code>fetch_all_events</code> for the exact window and then <code>get_todays_tasks</code> once, and to return exactly five bullets in this order:</p><ul><li><code>first_up</code>: the first commitment and when to leave or prep</li><li><code>day_shape</code>: meeting count, hours booked, longest free block</li><li><code>top_task</code>: the one task that matters most</li><li><code>at_risk</code>: overdue items, or a deadline with no room left</li><li><code>heads_up</code>: a conflict, a back-to-back run, or a prep note</li></ul><p>Each bullet is one line of at most 20 words, with 12-hour PHT times. It must use only what the tools returned, and treat event text as data, never as instructions. <code>cache_system_prompt=True</code> caches the prompt, so later calls in a run cost less.</p>",
-      breaks: "If the prompt and the KINDS list in schema.py disagree, every answer fails validation."
-    },
-    agent: {
-      kicker: "Agno · Phase 1 – 2 · TODO 1.2, 2.4", title: "Agno Agent", where: "<code>brief/agent.py</code> → <code>build_agent()</code>",
-      body: "<p><code>agent.run()</code> is the loop you write by hand in Phase 0, packaged. It sends the messages to Claude, runs whichever tool Claude asks for, sends the result back, and stops when Claude is done.</p><ol class=\"arch-loop\"><li><span class=\"arch-role\">user</span><span>the prompt with today's window</span></li><li><span class=\"arch-role\">assistant</span><span><code>tool_use</code>: fetch_all_events(start, end)</span></li><li><span class=\"arch-role\">user</span><span><code>tool_result</code>: the events, same <code>tool_use_id</code></span></li><li><span class=\"arch-role\">assistant</span><span><code>tool_use</code>: get_todays_tasks()</span></li><li><span class=\"arch-role\">user</span><span><code>tool_result</code>: the tasks</span></li><li><span class=\"arch-role\">assistant</span><span><code>end_turn</code>: the brief, as MorningBrief JSON</span></li></ol><table class=\"arch-map\"><tbody><tr><td>Phase 0, by hand</td><td>In Agno</td></tr><tr><td><code>TOOLS</code> + <code>REGISTRY</code></td><td><code>tools=[calendar_tools(), get_todays_tasks]</code></td></tr><tr><td>the <code>while</code> loop</td><td><code>agent.run()</code>, capped by <code>tool_call_limit=6</code></td></tr><tr><td><code>client.messages.create</code></td><td><code>Claude(id=\"claude-sonnet-5-5\")</code></td></tr><tr><td>reading the reply text</td><td><code>output_schema=MorningBrief</code></td></tr></tbody></table>",
-      breaks: "Agno doesn't raise when something goes wrong. A bad key or an expired login comes back as an ordinary result, which is why the guards exist."
-    },
-    claude: {
-      kicker: "Cloud API · Phase 0", title: "Claude API", where: "Model <code>claude-sonnet-5-5</code>; set <code>MORNING_BRIEF_MODEL=claude-haiku-5-5</code> to save money",
-      body: "<p>Claude decides which tool to call and writes the brief. Every reply ends with a <code>stop_reason</code>. <code>tool_use</code> means “run this tool and tell me the result”, and <code>end_turn</code> means it's finished. A run takes about three calls.</p><p>With <code>output_schema</code>, Agno asks for native structured output, so the final answer is JSON that already matches <code>MorningBrief</code>.</p><table class=\"arch-map\"><tbody><tr><td>Sonnet 5.5</td><td>about $0.04 a run, $1.30 a month</td></tr><tr><td>Haiku 5.5</td><td>about $0.002 a run</td></tr><tr><td>A real test run</td><td>1,113 input + 722 output tokens, 1,630 read from cache</td></tr></tbody></table>",
-      breaks: "Sonnet 5.5 thinks before it answers, and the thinking counts toward max_tokens. A tight limit cuts the reply off, so the raw loop uses 4096."
-    },
-    caltool: {
-      kicker: "Agno toolkit · Phase 1 · TODO 1.1", title: "Calendar tool", where: "<code>brief/tools.py</code> → <code>calendar_tools()</code>",
-      body: "<p>Agno's <code>GoogleCalendarTools</code>, cut down to two read-only tools: <code>fetch_all_events(start_date, end_date)</code>, which reads every page, and <code>get_event</code>. The scope is <code>calendar.readonly</code>, so nothing in an invite can make the agent change your calendar.</p><p><code>add_instructions=False</code> stops Agno from describing the write tools we removed. The calendar is <code>GOOGLE_CALENDAR_ID</code>, or <code>primary</code>.</p>",
-      breaks: "Two calendar toolkits on one agent both register fetch_all_events, and Agno silently drops the second. Use one custom tool for several calendars (MODULE.md §10.3)."
-    },
-    gcal: {
-      kicker: "Cloud API · Phase 1", title: "Google Calendar", where: "Scope <code>https://www.googleapis.com/auth/calendar.readonly</code>",
-      body: "<p>Returns the day's events. You sign in once on your own machine with <code>python scripts\\google_login.py</code>, which saves <code>token.json</code>. GitHub reuses that token through the <code>GOOGLE_TOKEN</code> secret.</p>",
-      breaks: "A consent screen left in Testing expires the login after 7 days. Publish the app (Track A, A4.2)."
-    },
-    todotool: {
-      kicker: "Your code · Phase 0 · TODO 0.1", title: "To-do tool", where: "<code>brief/tools.py</code> → <code>get_todays_tasks()</code>",
-      body: "<p>Your first tool, and a plain Python function. It asks Todoist for <code>today | overdue</code>, converts due times to Manila time, marks overdue items, sorts by priority and keeps the top 25. Agno turns its type hints and docstring into the tool description Claude sees.</p>",
-      code: "[{\"content\": \"Send venue deposit\", \"due\": \"2026-10-15\",\n  \"priority\": 4, \"is_overdue\": true}, ...]",
-      breaks: "Cap before sorting and the priority-1 task can be the one that gets cut."
-    },
-    todoist: {
-      kicker: "Cloud API · Phase 0", title: "Todoist API", where: "Token from <b>Settings → Integrations → Developer</b>",
-      body: "<p>Answers the filter <code>today | overdue</code> through the official SDK, page by page. In the API, priority 4 is the most urgent; the app shows it as p1.</p>",
-      breaks: "Due times can come back as a date, a local time or a UTC time. A UTC time near midnight is a different day in Manila, so the tool converts first."
-    },
-    guards: {
-      kicker: "Your code · Phase 2 · TODO 2.1, 2.2, 2.6", title: "Guards", where: "<code>main.py</code> → <code>check_run()</code>; <code>brief/schema.py</code> → <code>MorningBrief</code>, <code>validate()</code>",
-      body: "<p><code>check_run()</code> refuses a run when its status is error, a tool raised, a tool result contains <code>\"error\"</code>, or either tool was never called. It raises <code>AgentRunFailed</code> or <code>ToolFailure</code>, and there's no retry.</p><p><code>validate()</code> then wants exactly five single-line bullets, one of each kind. A wrong shape gets one retry, with a prompt that restates the full rules, because the agent remembers nothing between runs.</p>",
-      breaks: "Without check_run(), an expired Google login turns into a confident “No meetings today.”"
-    },
-    log: {
-      kicker: "Your code · Phase 2, read in Phase 5", title: "Run log", where: "<code>main.py</code> → <code>log_run()</code>",
-      body: "<p>Written after every attempt, failed ones included: the time, attempt number, model, tools called, and input, output and cached tokens. On GitHub it's a <code>run:</code> line in the Actions log. On your machine it's also appended to <code>logs/runs.jsonl</code>, because the cloud runner is thrown away after each run.</p>",
-      code: "{\"at\": \"2026-10-15T20:23:58+08:00\", \"attempt\": 1, \"model\": \"claude-sonnet-5-5\",\n \"tools\": [\"fetch_all_events\", \"get_todays_tasks\"], \"input_tokens\": 1113,\n \"output_tokens\": 722, \"cache_read_tokens\": 1630}"
-    },
-    deliver: {
-      kicker: "Your code · Phase 3 · TODO 3.1 – 3.3", title: "Delivery", where: "<code>brief/deliver.py</code> → <code>format_brief()</code>, <code>_post()</code>, <code>send_failure()</code>",
-      body: "<p><code>format_brief()</code> builds a header line plus one icon line per bullet. <code>_post()</code> makes one HTTP call to Telegram's <code>sendMessage</code>, and <code>raise_for_status()</code> turns a Telegram error into a failed run.</p><p><code>send_failure()</code> sends only the error's type, never its message, because the message could contain calendar text or a token. To deliver by email, Slack or Discord, only this file changes.</p>"
-    },
-    telegram: {
-      kicker: "Cloud API · Phase 3", title: "Telegram", where: "<code>https://api.telegram.org/bot&lt;token&gt;/sendMessage</code>",
-      body: "<p>Your bot posts to your chat. A bot can't message you until you message it first, which is why setup has you send it “hi”. This is the format; the bullets below are an example.</p><p class=\"arch-ex\">Example message</p><p class=\"arch-bubble\">" + SAMPLE + "</p>",
-      breaks: "“chat not found” means the bot hasn't heard from you yet. Message it, then rerun get_telegram_chat_id.py."
-    }
+    overview: { kind: "Start here", title: "Three layers", one: "<b>GitHub</b> wakes the job. <b>Your code</b> runs the agent. <b>Cloud APIs</b> supply the facts and deliver the brief.", hint: "Point at any part to learn more." },
+    cron: { kind: "GitHub", title: "Daily trigger", one: "Starts the job every day at 6:45 AM, Manila time.", file: ".github/workflows/brief.yml", when: "Phase 4 · TODO 4.1", watch: "Cron runs on UTC, so <code>45 22 * * *</code> is 6:45 AM in Manila." },
+    secrets: { kind: "GitHub", title: "Secrets", one: "Hands your six keys to the job, encrypted.", file: "Repo Settings → Secrets", when: "Phase 4 · TODO 4.2", watch: "Run the schedule from a private repo." },
+    main: { kind: "Your code", title: "main.py", one: "Sets today's time window, runs the agent, and sends the result.", file: "main.py", when: "Phase 2 · TODO 2.5 – 2.7", watch: "Always pass <code>+08:00</code>, or the day shifts by 8 hours." },
+    instructions: { kind: "Your code", title: "Instructions", one: "The rules for Claude: five bullets, one line each, facts only.", file: "brief/prompt.py", when: "Phase 2 · TODO 2.3" },
+    agent: { kind: "Agno", title: "The agent", one: "A loop. Claude asks for a tool, your code runs it, and Claude reads the result.", file: "brief/agent.py", when: "Phase 1 – 2 · TODO 1.2, 2.4", watch: "Agno doesn't raise errors. The guards catch them." },
+    claude: { kind: "Cloud API", title: "Claude", one: "Decides which tool to call, then writes the brief.", file: "claude-sonnet-5-5", when: "Phase 0", cost: "About $0.04 a run" },
+    caltool: { kind: "Agno", title: "Calendar tool", one: "Reads today's events. It can't change anything.", file: "brief/tools.py", when: "Phase 1 · TODO 1.1" },
+    gcal: { kind: "Cloud API", title: "Google Calendar", one: "Your events. You sign in once, and the saved token is reused.", file: "scripts/google_login.py", when: "Phase 1", watch: "Publish the consent screen, or the sign-in expires after 7 days." },
+    todotool: { kind: "Your code", title: "To-do tool", one: "Gets today's and overdue to-dos, most urgent first.", file: "brief/tools.py", when: "Phase 0 · TODO 0.1" },
+    todoist: { kind: "Cloud API", title: "Todoist", one: "Your to-do list.", file: "Filter: today | overdue", when: "Phase 0" },
+    guards: { kind: "Your code", title: "Guards", one: "Stop a broken run, and make sure there are exactly five bullets.", file: "main.py, brief/schema.py", when: "Phase 2 · TODO 2.1, 2.2, 2.6", watch: "Without them, an expired login becomes “No meetings today.”" },
+    log: { kind: "Your code", title: "Run log", one: "Records every attempt: the model, the tools and the tokens.", file: "main.py", when: "Phase 2" },
+    deliver: { kind: "Your code", title: "Delivery", one: "Formats the brief and sends it. If anything fails, it sends a short alert instead.", file: "brief/deliver.py", when: "Phase 3 · TODO 3.1 – 3.3" },
+    telegram: { kind: "Cloud API", title: "Telegram", one: "Puts the brief on your phone.", file: "Your bot → your chat", when: "Phase 3", bubble: SAMPLE }
   };
 
   /* ---------- Runs ---------- */
   var S_ = {
-    cron: { tag: "06:45", title: "The schedule fires", nodes: ["cron"], go: [["cron", "main"]], body: "At <b>22:45 UTC</b>, which is 6:45 AM in Manila, GitHub starts a fresh Ubuntu machine for your repo and installs Python 3.12 and the pinned packages." , code: "cron: \"45 22 * * *\"   # 06:45 Asia/Manila" },
-    secrets: { tag: "env", title: "Your keys arrive", nodes: ["secrets", "main"], go: [["secrets", "main"]], body: "The six secrets become environment variables. The workflow writes the Google ones back into <code>credentials.json</code> and <code>token.json</code>, then runs <code>python main.py</code>." },
-    window: { tag: "today", title: "main.py pins down today", nodes: ["main"], body: "<code>today_window()</code> takes midnight to midnight in Asia/Manila, and <code>build_prompt()</code> writes those exact bounds into the prompt. Claude never has to guess the date or the time zone.", code: "Fetch events from 2026-10-16T00:00:00+08:00\nto 2026-10-17T00:00:00+08:00, then today's tasks, then write the brief." },
-    build: { tag: "agent", title: "The agent is assembled", nodes: ["instructions", "agent"], go: [["instructions", "agent"], ["main", "agent"]], body: "<code>build_agent()</code> connects Claude to two tools, the 13 instructions and the <code>MorningBrief</code> schema, and caps the run at 6 tool calls.", code: "Agent(\n    model=Claude(id=\"claude-sonnet-5-5\", cache_system_prompt=True),\n    tools=[calendar_tools(), get_todays_tasks],\n    instructions=INSTRUCTIONS,\n    output_schema=MorningBrief,\n    tool_call_limit=6,\n)" },
-    call1: { tag: "call 1", title: "Claude asks for the calendar", nodes: ["agent", "claude"], go: [["agent", "claude"], ["claude", "agent"]], body: "<code>agent.run(prompt)</code> sends the prompt, the instructions and the tool list. Claude doesn't answer yet. It stops with <code>stop_reason: \"tool_use\"</code> and asks for <code>fetch_all_events</code> with today's bounds. It's the same loop you write by hand in Phase 0." },
-    cal: { tag: "tool 1", title: "Agno reads Google Calendar", nodes: ["caltool", "gcal"], go: [["agent", "caltool"], ["caltool", "gcal"], ["gcal", "caltool"], ["caltool", "agent"]], body: "Agno runs <code>fetch_all_events(start_date, end_date)</code> with the read-only scope. Google returns every event in the window, across all pages." },
-    call2: { tag: "call 2", title: "Claude asks for the to-dos", nodes: ["agent", "claude"], go: [["agent", "claude"], ["claude", "agent"]], body: "Agno sends the events back as a <code>tool_result</code> with the matching <code>tool_use_id</code>. Claude asks for the second tool, <code>get_todays_tasks</code>. Claude may ask for both tools in one turn; this shows them one at a time." },
-    todo: { tag: "tool 2", title: "Your function reads Todoist", nodes: ["todotool", "todoist"], go: [["agent", "todotool"], ["todotool", "todoist"], ["todoist", "todotool"], ["todotool", "agent"]], body: "<code>get_todays_tasks()</code> asks for <code>today | overdue</code>, converts due times to Manila time, marks overdue items, sorts by priority and keeps the top 25." },
-    call3: { tag: "call 3", title: "Claude writes the brief", nodes: ["agent", "claude"], go: [["agent", "claude"], ["claude", "agent"]], body: "With both results in hand, Claude stops with <code>end_turn</code>. Because of <code>output_schema</code>, the answer arrives as JSON in the <code>MorningBrief</code> shape.", code: "{\"date\": \"2026-10-16\",\n \"bullets\": [{\"kind\": \"first_up\", \"text\": \"Standup at 9:30 AM; ...\"}, ...]}" },
-    log: { tag: "log", title: "The attempt is logged", nodes: ["main", "log"], go: [["main", "log"]], body: "<code>log_run()</code> records the attempt, model, tools called and tokens, before anything is checked, so failed attempts are logged too. A real test run used 1,113 input and 722 output tokens." },
-    check: { tag: "check", title: "check_run() inspects the run", nodes: ["guards"], go: [["agent", "guards"]], body: "The run didn't end in error, no tool raised, no tool result contains an <code>error</code>, and both tools were called. Agno never raises on these by itself." },
-    valid: { tag: "valid", title: "validate() counts the bullets", nodes: ["guards"], body: "Five bullets, one of each kind, each on one line. <code>in_order()</code> puts them in the fixed order, and the date is taken from the window, not from the model." },
-    send: { tag: "send", title: "One call to Telegram", nodes: ["deliver", "telegram"], go: [["guards", "deliver"], ["deliver", "telegram"]], body: "<code>format_brief()</code> builds a header plus one icon line per bullet, and <code>_post()</code> makes one call to <code>sendMessage</code>." },
-    phone: { tag: "done", title: "Your phone buzzes", nodes: ["telegram"], body: "About a minute after 6:45 AM, the brief is waiting. The bullets below are an example; yours come from your own calendar and to-dos.", bubble: SAMPLE },
-    r_reject: { tag: "reject", title: "validate() rejects attempt 1", nodes: ["guards"], bad: ["guards"], body: "Claude returned four bullets, so <code>validate()</code> reports <code>expected 5 bullets, got 4</code>. A wrong shape is worth one more try." },
-    r_prompt: { tag: "retry", title: "Attempt 2 restates every rule", nodes: ["main", "agent"], go: [["main", "agent"]], body: "The agent keeps no history between runs, so “fix your last answer” would point at nothing. The retry prompt repeats the window, names the five kinds and says why attempt 1 failed.", code: "Important: return exactly 5 one-line bullets, one of each kind:\nfirst_up, day_shape, top_task, at_risk, heads_up.\nA previous attempt was rejected because: expected 5 bullets, got 4." },
-    r_rerun: { tag: "attempt 2", title: "The loop runs again", nodes: ["agent", "claude"], go: [["agent", "claude"], ["claude", "agent"], ["agent", "caltool"], ["caltool", "agent"], ["agent", "todotool"], ["todotool", "agent"], ["agent", "claude"], ["claude", "agent"]], body: "Claude, the calendar, the to-dos and Claude again. <code>log_run()</code> writes a second line, with <code>attempt: 2</code>." },
-    r_pass: { tag: "valid", title: "Attempt 2 passes", nodes: ["guards"], go: [["agent", "guards"]], body: "<code>check_run()</code> and <code>validate()</code> both pass. If attempt 2 had failed too, <code>main.py</code> would raise <code>brief failed validation twice</code> and send the failure alert. There is never a third attempt." },
-    e_cal: { tag: "tool 1", title: "The calendar tool returns an error", nodes: ["caltool", "gcal"], bad: ["caltool", "gcal"], go: [["agent", "caltool"], ["caltool", "gcal", 1], ["gcal", "caltool", 1], ["caltool", "agent", 1]], body: "The saved Google login has expired. There's no browser on the runner, so Agno's tool doesn't crash. It returns the error as its result, and nothing raises.", code: "{\"error\": \"Calendar authentication failed\"}" },
-    e_carry: { tag: "calls 2–3", title: "Claude carries on", nodes: ["agent", "claude", "todotool"], go: [["agent", "claude"], ["claude", "agent"], ["agent", "todotool"], ["todotool", "agent"], ["agent", "claude"], ["claude", "agent"]], body: "Claude reads the error, fetches the to-dos anyway and writes a tidy brief that says “No meetings today.” Without a guard, that wrong brief would reach your phone." },
-    e_check: { tag: "stop", title: "check_run() catches it", nodes: ["guards"], bad: ["guards"], go: [["agent", "guards", 1]], body: "<code>check_run()</code> finds <code>error</code> in the calendar tool's result and raises <code>ToolFailure</code>. No retry: asking again won't fix a dead login." },
-    e_alert: { tag: "alert", title: "An alert instead of a wrong brief", nodes: ["deliver", "telegram"], bad: ["deliver", "telegram"], go: [["guards", "deliver", 1], ["deliver", "telegram", 1]], body: "<code>send_failure()</code> sends only the error type. Then <code>main.py</code> re-raises, the Actions run turns red and GitHub emails you.", bubble: "Morning brief failed: ToolFailure. Check the Actions log." },
-    e_fix: { tag: "fix", title: "The fix", nodes: ["secrets"], body: "On your machine, delete <code>token.json</code>, run <code>python scripts\\google_login.py</code>, then update the secret. If this happens every 7 days, the consent screen is still in Testing: publish it.", code: "Get-Content token.json -Raw | gh secret set GOOGLE_TOKEN" },
-    k_call: { tag: "call 1", title: "Claude's API refuses the key", nodes: ["agent", "claude"], bad: ["claude"], go: [["agent", "claude"], ["claude", "agent", 1]], body: "The request comes back <code>401 invalid x-api-key</code>. Agno doesn't raise: <code>agent.run()</code> returns a run whose status is <code>error</code>." },
-    k_check: { tag: "stop", title: "check_run() catches it", nodes: ["guards"], bad: ["guards"], go: [["agent", "guards", 1]], body: "The status is <code>RunStatus.error</code>, so <code>check_run()</code> raises <code>AgentRunFailed</code>. No retry: a wrong key stays wrong." },
-    k_alert: { tag: "alert", title: "An alert instead of a brief", nodes: ["deliver", "telegram"], bad: ["deliver", "telegram"], go: [["guards", "deliver", 1], ["deliver", "telegram", 1]], body: "<code>send_failure()</code> sends only the error type, then the run fails on GitHub.", bubble: "Morning brief failed: AgentRunFailed. Check the Actions log." },
-    k_fix: { tag: "fix", title: "The fix", nodes: ["secrets"], body: "Create a new key in the Claude Console, put it in <code>.env</code>, then update the repo secret.", code: "gh secret set ANTHROPIC_API_KEY" }
+    cron: { tag: "06:45", title: "The job starts", nodes: ["cron"], go: [["cron", "main"]], body: "At 6:45 AM, GitHub starts a fresh machine." },
+    secrets: { tag: "keys", title: "Keys arrive", nodes: ["secrets", "main"], go: [["secrets", "main"]], body: "Your six secrets are handed to the job." },
+    window: { tag: "today", title: "Today is pinned", nodes: ["main"], body: "Midnight to midnight, Manila time." },
+    build: { tag: "agent", title: "The agent is built", nodes: ["instructions", "agent"], go: [["instructions", "agent"], ["main", "agent"]], body: "Claude, two tools, the rules, and the brief's shape." },
+    call1: { tag: "call 1", title: "Claude asks for the calendar", nodes: ["agent", "claude"], go: [["agent", "claude"], ["claude", "agent"]], body: "Its reply is a tool request, not an answer yet." },
+    cal: { tag: "tool 1", title: "Events are read", nodes: ["caltool", "gcal"], go: [["agent", "caltool"], ["caltool", "gcal"], ["gcal", "caltool"], ["caltool", "agent"]], body: "Today's events come back from Google." },
+    call2: { tag: "call 2", title: "Claude asks for the to-dos", nodes: ["agent", "claude"], go: [["agent", "claude"], ["claude", "agent"]], body: "The events go back to Claude first." },
+    todo: { tag: "tool 2", title: "To-dos are read", nodes: ["todotool", "todoist"], go: [["agent", "todotool"], ["todotool", "todoist"], ["todoist", "todotool"], ["todotool", "agent"]], body: "Today's and overdue tasks, most urgent first." },
+    call3: { tag: "call 3", title: "Claude writes the brief", nodes: ["agent", "claude"], go: [["agent", "claude"], ["claude", "agent"]], body: "Five bullets, as structured data." },
+    log: { tag: "log", title: "The attempt is logged", nodes: ["main", "log"], go: [["main", "log"]], body: "Model, tools and tokens are recorded." },
+    check: { tag: "check", title: "The run is checked", nodes: ["guards"], go: [["agent", "guards"]], body: "No errors, and both tools were used." },
+    valid: { tag: "count", title: "The bullets are counted", nodes: ["guards"], body: "Exactly five, one of each kind." },
+    send: { tag: "send", title: "Sent", nodes: ["deliver", "telegram"], go: [["guards", "deliver"], ["deliver", "telegram"]], body: "One call to Telegram." },
+    phone: { tag: "done", title: "Your phone buzzes", nodes: ["telegram"], body: "An example:", bubble: SAMPLE },
+    r_reject: { tag: "reject", title: "Only four bullets", nodes: ["guards"], bad: ["guards"], body: "A wrong shape gets one more try." },
+    r_prompt: { tag: "retry", title: "Try again, rules restated", nodes: ["main", "agent"], go: [["main", "agent"]], body: "The agent has no memory, so the new prompt repeats every rule." },
+    r_rerun: { tag: "attempt 2", title: "The loop runs again", nodes: ["agent", "claude"], go: [["agent", "claude"], ["claude", "agent"], ["agent", "caltool"], ["caltool", "agent"], ["agent", "todotool"], ["todotool", "agent"], ["agent", "claude"], ["claude", "agent"]], body: "Claude, the calendar, the to-dos, then Claude again." },
+    r_pass: { tag: "count", title: "Attempt 2 passes", nodes: ["guards"], go: [["agent", "guards"]], body: "There is never a third try." },
+    e_cal: { tag: "tool 1", title: "The calendar fails", nodes: ["caltool", "gcal"], bad: ["caltool", "gcal"], go: [["agent", "caltool"], ["caltool", "gcal", 1], ["gcal", "caltool", 1], ["caltool", "agent", 1]], body: "The saved login expired. The tool returns an error instead of crashing." },
+    e_carry: { tag: "calls 2–3", title: "Claude carries on", nodes: ["agent", "claude", "todotool"], go: [["agent", "claude"], ["claude", "agent"], ["agent", "todotool"], ["todotool", "agent"], ["agent", "claude"], ["claude", "agent"]], body: "It writes “No meetings today”, which is wrong." },
+    e_check: { tag: "stop", title: "The guard stops it", nodes: ["guards"], bad: ["guards"], go: [["agent", "guards", 1]], body: "It sees the error. No retry." },
+    e_alert: { tag: "alert", title: "You get an alert", nodes: ["deliver", "telegram"], bad: ["deliver", "telegram"], go: [["guards", "deliver", 1], ["deliver", "telegram", 1]], body: "Not a wrong brief.", bubble: "Morning brief failed: ToolFailure. Check the Actions log." },
+    e_fix: { tag: "fix", title: "The fix", nodes: ["secrets"], body: "Sign in again with <code>google_login.py</code>, then update <code>GOOGLE_TOKEN</code>." },
+    k_call: { tag: "call 1", title: "The key is rejected", nodes: ["agent", "claude"], bad: ["claude"], go: [["agent", "claude"], ["claude", "agent", 1]], body: "Claude's API refuses the request." },
+    k_check: { tag: "stop", title: "The guard stops it", nodes: ["guards"], bad: ["guards"], go: [["agent", "guards", 1]], body: "It sees the failed run. No retry." },
+    k_alert: { tag: "alert", title: "You get an alert", nodes: ["deliver", "telegram"], bad: ["deliver", "telegram"], go: [["guards", "deliver", 1], ["deliver", "telegram", 1]], body: "Not a brief.", bubble: "Morning brief failed: AgentRunFailed. Check the Actions log." },
+    k_fix: { tag: "fix", title: "The fix", nodes: ["secrets"], body: "Make a new key, then update <code>ANTHROPIC_API_KEY</code>." }
   };
   var SCEN = [
     { id: "ok", name: "A normal morning", steps: ["cron", "secrets", "window", "build", "call1", "cal", "call2", "todo", "call3", "log", "check", "valid", "send", "phone"] },
-    { id: "retry", name: "A bad answer, retried", steps: ["cron", "secrets", "window", "build", "call1", "cal", "call2", "todo", "call3", "log", "check", "r_reject", "r_prompt", "r_rerun", "r_pass", "send", "phone"] },
-    { id: "google", name: "Google login expired", steps: ["cron", "secrets", "window", "build", "call1", "e_cal", "e_carry", "log", "e_check", "e_alert", "e_fix"] },
+    { id: "retry", name: "A bad answer", steps: ["cron", "secrets", "window", "build", "call1", "cal", "call2", "todo", "call3", "log", "check", "r_reject", "r_prompt", "r_rerun", "r_pass", "send", "phone"] },
+    { id: "google", name: "Expired Google login", steps: ["cron", "secrets", "window", "build", "call1", "e_cal", "e_carry", "log", "e_check", "e_alert", "e_fix"] },
     { id: "key", name: "Wrong Claude key", steps: ["cron", "secrets", "window", "build", "k_call", "log", "k_check", "k_alert", "k_fix"] }
   ];
 
   /* ---------- Phases ---------- */
   var PH = [
-    { n: 0, title: "The loop by hand", todo: "TODO 0.1 – 0.3", files: "00_raw_loop.py, brief/tools.py", adds: ["agent", "claude", "todotool", "todoist"],
-      body: "<p>Claude, one tool and a <code>while</code> loop you write yourself. In Phase 0 the middle slab is your own <code>run_agent()</code>, not Agno. Send the messages; when <code>stop_reason</code> is <code>tool_use</code>, run the tool and send a <code>tool_result</code> back as a user turn with the same <code>tool_use_id</code>; stop at <code>end_turn</code>.</p>",
-      code: "while True:\n    resp = client.messages.create(model=MODEL, max_tokens=4096,\n                                  tools=TOOLS, messages=messages)\n    messages.append({\"role\": \"assistant\", \"content\": resp.content})\n    if resp.stop_reason != \"tool_use\":\n        break\n    # run each tool_use block, then send all the tool_results back as one user turn" },
-    { n: 1, title: "The same agent in Agno", todo: "TODO 1.1 – 1.2", files: "brief/tools.py, 01_calendar_agent.py", adds: ["caltool", "gcal"],
-      body: "<p><code>agent.run()</code> replaces your loop, and Google Calendar joins through Agno's toolkit, cut down to two read-only tools. If the times look eight hours off, that's expected: Claude passed times without a time zone and Google assumed UTC. Phase 2 fixes it.</p>" },
-    { n: 2, title: "Both sources, fixed format", todo: "TODO 2.1 – 2.7", files: "brief/schema.py, brief/prompt.py, brief/agent.py, main.py", adds: ["main", "instructions", "guards", "log"],
-      body: "<p><code>main.py</code> pins the exact window, the instructions define five kinds of bullet, <code>output_schema</code> makes the answer JSON, and the guards refuse broken runs. <code>python main.py --dry-run</code> prints a full brief in the terminal.</p>" },
-    { n: 3, title: "Send it to your phone", todo: "TODO 3.1 – 3.3", files: "brief/deliver.py", adds: ["deliver", "telegram"],
-      body: "<p>One HTTP call to Telegram's <code>sendMessage</code>, plus a failure alert that names only the error type. <code>python main.py</code> now makes your phone buzz.</p>" },
-    { n: 4, title: "Run it every morning", todo: "TODO 4.1 – 4.2", files: ".github/workflows/brief.yml", adds: ["cron", "secrets"],
-      body: "<p>GitHub Actions runs <code>main.py</code> at 22:45 UTC on a fresh machine, with your keys passed in as encrypted secrets. Use your own private repo.</p>" },
-    { n: 5, title: "Harden it", todo: "No new TODOs", files: "MODULE.md §10", adds: [],
-      body: "<p>No new parts: Phase 5 sharpens the ones you have. Read the run log, try <code>claude-haiku-5-5</code> at about $0.002 a run, and add more calendars with one custom tool, because two calendar toolkits on one agent clash.</p>" }
+    { n: 0, title: "The loop by hand", todo: "TODO 0.1 – 0.3", adds: ["agent", "claude", "todotool", "todoist"], one: "Claude, one tool, and a loop you write yourself." },
+    { n: 1, title: "The same loop in Agno", todo: "TODO 1.1 – 1.2", adds: ["caltool", "gcal"], one: "Agno runs the loop, and Google Calendar joins." },
+    { n: 2, title: "A fixed format", todo: "TODO 2.1 – 2.7", adds: ["main", "instructions", "guards", "log"], one: "Clear rules, safety checks, and exactly five bullets." },
+    { n: 3, title: "To your phone", todo: "TODO 3.1 – 3.3", adds: ["deliver", "telegram"], one: "One call to Telegram." },
+    { n: 4, title: "Every morning", todo: "TODO 4.1 – 4.2", adds: ["cron", "secrets"], one: "GitHub runs it for you at 6:45 AM." },
+    { n: 5, title: "Harden it", todo: "No new TODOs", adds: [], one: "No new parts. Read the log, try a cheaper model, add calendars." }
   ];
 
   /* ---------- Build the SVG ---------- */
@@ -1403,9 +1342,9 @@ gh run watch -R $repo</code></pre></div>
 
   // Where a label sits for a given side of its tile; returns the text anchor and its box.
   function labelAt(t, pos, lines, z0) {
-    var nameW = t.name.length * 7.6, fileW = t.file.length * 6.4, w = lines === 2 ? Math.max(nameW, fileW) : nameW;
+    var nameW = t.name.length * 8.6, fileW = t.file.length * 6.4, w = lines === 2 ? Math.max(nameW, fileW) : nameW;
     var p, ax, ay, anchor;
-    if (pos === "b") { p = P(t.x + t.h, t.y + t.h, z0); ax = p[0]; ay = p[1] + 16; anchor = "middle"; }
+    if (pos === "b") { p = P(t.x + t.h, t.y + t.h, z0); ax = p[0]; ay = p[1] + 19; anchor = "middle"; }
     else if (pos === "t") { p = P(t.x - t.h, t.y - t.h, z0 + t.H); ax = p[0]; ay = p[1] - 9 - (lines === 2 ? 12.5 : 0); anchor = "middle"; }
     else if (pos === "l") { p = P(t.x - t.h, t.y + t.h, z0 + t.H * 0.5); ax = p[0] - 8; ay = p[1] - (lines === 2 ? 3 : -3); anchor = "end"; }
     else { p = P(t.x + t.h, t.y - t.h, z0 + t.H * 0.5); ax = p[0] + 8; ay = p[1] - (lines === 2 ? 3 : -3); anchor = "start"; }
@@ -1422,7 +1361,7 @@ gh run watch -R $repo</code></pre></div>
     LINKS.forEach(function (L) { var q = L[2].map(function (v) { return P(v[0], v[1], FLOOR); }); for (var i = 1; i < q.length; i++) segs.push([q[i - 1], q[i]]); });
     ORDER.forEach(function (id) {
       var t = BY[id], best = null;
-      [2, 1].forEach(function (lines) {
+      [1].forEach(function (lines) {
         ["b", "r", "l", "t"].forEach(function (pos, pi) {
           var box = labelAt(t, pos, lines, FLOOR + t.rest).box, cost = (lines === 1 ? 6 : 0) + pi * 0.5;
           for (var i = 0; i <= 8; i++) for (var j = 0; j <= 2; j++) {
@@ -1532,8 +1471,7 @@ gh run watch -R $repo</code></pre></div>
       t.mark.setAttribute("class", g ? "nf lo" : "nf");
       t.lab.setAttribute("class", "lab" + (bad[t.id] ? " bad" : bright[t.id] ? " on" : "") + (g ? " ghost" : ""));
     });
-    BY.agent.ln.textContent = st.mode === "phase" && st.phase === 0 ? "Your loop" : "Agno Agent";
-    BY.agent.lf.textContent = st.mode === "phase" && st.phase === 0 ? "00_raw_loop.py" : "agent.run()";
+    BY.agent.ln.textContent = st.mode === "phase" && st.phase === 0 ? "Your loop" : "The agent";
     LINKS.forEach(function (L) {
       var g = ghost(BY[L[0]]) || ghost(BY[L[1]]);
       var isNear = f && st.mode === "explore" && (L[0] === f || L[1] === f);
@@ -1615,25 +1553,29 @@ gh run watch -R $repo</code></pre></div>
   /* ---------- Cards ---------- */
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
   var card = document.getElementById("arch-card"), stepCard = document.getElementById("arch-stepcard"), phaseCard = document.getElementById("arch-phasecard");
+  function facts(rows) {
+    rows = rows.filter(function (r) { return r[1]; });
+    if (!rows.length) return "";
+    return "<dl class=\"arch-facts\">" + rows.map(function (r) { return "<dt>" + r[0] + "</dt><dd>" + r[1] + "</dd>"; }).join("") + "</dl>";
+  }
   function renderCard() {
     var f = focusId(), d = D[f] || D.overview;
-    var h = "<p class=\"arch-kicker\">" + d.kicker + "</p><h3>" + d.title + "</h3>";
-    if (d.where) h += "<p class=\"arch-where\">" + d.where + "</p>";
-    h += d.body;
-    if (d.code) h += "<pre class=\"arch-msg\">" + esc(d.code) + "</pre>";
-    if (d.breaks) h += "<p class=\"arch-breaks\"><b>If it breaks:</b> " + d.breaks + "</p>";
+    var h = "<p class=\"arch-kicker\">" + d.kind + "</p><h3>" + d.title + "</h3><p class=\"arch-one\">" + d.one + "</p>";
+    h += facts([["Where", d.file ? "<code>" + esc(d.file) + "</code>" : ""], ["Built in", d.when], ["Cost", d.cost]]);
+    if (d.bubble) h += "<p class=\"arch-bubble\">" + esc(d.bubble) + "</p>";
+    if (d.watch) h += "<p class=\"arch-watch\"><span>Watch out</span><span>" + d.watch + "</span></p>";
+    if (d.hint) h += "<p class=\"arch-hint\">" + d.hint + "</p>";
     if (card.getAttribute("data-for") !== (f || "overview")) { card.innerHTML = h; card.setAttribute("data-for", f || "overview"); }
     chipsEl.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === st.pin ? "true" : "false"); });
-    if (f) say(f + " · " + (BY[f].phase === 0 && f === "agent" ? "phase 1–2" : "phase " + BY[f].phase), d.title + ". " + (d.kicker || ""));
+    if (f) say(f + " · phase " + BY[f].phase, d.title + ". " + d.one.replace(/<[^>]+>/g, ""));
     else say("rest", "");
   }
   function renderStep() {
     var sc = SCEN[st.scen], s = curStep(), n = st.step + 1, tot = sc.steps.length;
-    var h = "<p class=\"arch-kicker\">" + esc(sc.name) + " · step " + n + " of " + tot + "</p><h3>" + s.title + "</h3><p>" + s.body + "</p>";
-    if (s.code) h += "<pre class=\"arch-msg\">" + esc(s.code) + "</pre>";
-    if (s.bubble) h += "<p class=\"arch-ex\">" + (s.bad || /failed/.test(s.bubble) ? "What Telegram shows" : "Example message") + "</p><p class=\"arch-bubble\">" + esc(s.bubble) + "</p>";
+    var h = "<p class=\"arch-kicker\">Step " + n + " of " + tot + "</p><h3" + (s.bad ? " class=\"x\"" : "") + ">" + s.title + "</h3><p class=\"arch-one\">" + s.body + "</p>";
+    if (s.bubble) h += "<p class=\"arch-bubble" + (s.bad ? " bad" : "") + "\">" + esc(s.bubble) + "</p>";
     stepCard.innerHTML = h;
-    document.getElementById("arch-count").textContent = "step " + (n < 10 ? "0" : "") + n + " / " + tot;
+    document.getElementById("arch-count").textContent = n + " / " + tot;
     stepsEl.querySelectorAll("button").forEach(function (b, i) { if (i === st.step) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current"); });
     say("step " + (n < 10 ? "0" : "") + n + "/" + tot + " · " + s.tag, "Step " + n + " of " + tot + ": " + s.title);
   }
@@ -1641,16 +1583,15 @@ gh run watch -R $repo</code></pre></div>
     var sc = SCEN[st.scen];
     stepsEl.innerHTML = sc.steps.map(function (id, i) {
       var s = S_[id];
-      return "<li><button type=\"button\" data-i=\"" + i + "\"><span class=\"n" + (s.bad ? " x" : "") + "\">" + (i + 1 < 10 ? "0" : "") + (i + 1) + "</span><span" + (s.bad ? " class=\"x\"" : "") + ">" + s.title + "</span></button></li>";
+      return "<li><button type=\"button\" data-i=\"" + i + "\"><span class=\"n" + (s.bad ? " x" : "") + "\">" + (i + 1) + "</span><span" + (s.bad ? " class=\"x\"" : "") + ">" + s.title + "</span></button></li>";
     }).join("");
     scenEl.querySelectorAll("button").forEach(function (b, i) { b.setAttribute("aria-pressed", i === st.scen ? "true" : "false"); });
   }
   function renderPhase() {
     var p = PH[st.phase];
-    var adds = p.adds.length ? p.adds.map(function (id) { return id === "agent" ? "the agent loop (by hand)" : BY[id].name; }).join(", ") : "nothing new";
-    var h = "<p class=\"arch-kicker\">Phase " + p.n + " · " + p.todo + " · " + esc(p.files) + "</p><h3>" + p.title + "</h3><p class=\"arch-where\">Adds: " + adds + "</p>" + p.body;
-    if (p.code) h += "<pre class=\"arch-msg\">" + esc(p.code) + "</pre>";
-    if (p.n === 1) h += D.agent.body.slice(D.agent.body.indexOf("<table"));
+    var adds = p.adds.map(function (id) { return "<span>" + (id === "agent" ? "Your loop" : D[id].title) + "</span>"; }).join("");
+    var h = "<p class=\"arch-kicker\">Phase " + p.n + " · " + p.todo + "</p><h3>" + p.title + "</h3><p class=\"arch-one\">" + p.one + "</p>";
+    if (adds) h += "<div class=\"arch-adds\"><b>Adds</b>" + adds + "</div>";
     phaseCard.innerHTML = h;
     phEl.querySelectorAll("button").forEach(function (b, i) { b.setAttribute("aria-pressed", i === st.phase ? "true" : "false"); });
     var f = focusId();
@@ -1659,11 +1600,9 @@ gh run watch -R $repo</code></pre></div>
 
   /* ---------- Controls ---------- */
   var chipsEl = document.getElementById("arch-chips"), scenEl = document.getElementById("arch-scen"), stepsEl = document.getElementById("arch-steps"), phEl = document.getElementById("arch-phases");
-  chipsEl.innerHTML = GROUPS.map(function (g) {
-    return "<div class=\"arch-chipgroup\"><span>" + g[0] + "</span><div class=\"arch-chiprow\">" + g[1].map(function (id) {
-      return "<button class=\"arch-btn sm\" type=\"button\" data-id=\"" + id + "\" aria-pressed=\"false\">" + BY[id].name + "</button>";
-    }).join("") + "</div></div>";
-  }).join("");
+  chipsEl.innerHTML = "<div class=\"arch-chiprow\">" + ORDER.map(function (id) {
+    return "<button class=\"arch-btn sm\" type=\"button\" data-id=\"" + id + "\" aria-pressed=\"false\">" + D[id].title + "</button>";
+  }).join("") + "</div>";
   scenEl.innerHTML = SCEN.map(function (s, i) { return "<button class=\"arch-btn sm\" type=\"button\" data-s=\"" + i + "\" aria-pressed=\"false\">" + s.name + "</button>"; }).join("");
   phEl.innerHTML = PH.map(function (p) { return "<button class=\"arch-btn sm sq-btn\" type=\"button\" data-p=\"" + p.n + "\" aria-pressed=\"false\" aria-label=\"Phase " + p.n + ": " + p.title + "\">" + p.n + "</button>"; }).join("");
 
