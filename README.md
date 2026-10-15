@@ -13,7 +13,7 @@ You'll build it twice: first the agent loop **by hand** on the Claude API, then 
 
 📘 **Follow [MODULE.md](MODULE.md)**. It walks you through everything, from setup to a daily schedule.
 
-🧭 **Prefer a click-through checklist?** Open [WALKTHROUGH.html](WALKTHROUGH.html) in your browser. It has every step with copy buttons, tick-boxes that remember your progress, and a detailed Google sign-in section. GitHub shows the file as source code, so open your local copy after cloning: `start WALKTHROUGH.html` (Windows) or `open WALKTHROUGH.html` (macOS).
+🧭 **Prefer a click-through checklist?** Open the **[walkthrough guide](https://claude.ai/artifact/7kbp7UEujdSLP1YzAQCHFD)**. It has every step with copy buttons, tick-boxes that remember your progress, and a detailed Google sign-in section. A copy is also in this repo as [WALKTHROUGH.html](WALKTHROUGH.html). GitHub shows that file as source code, so open your local copy after cloning: `start WALKTHROUGH.html` (Windows) or `open WALKTHROUGH.html` (macOS).
 
 ## Get started
 
