@@ -1,0 +1,35 @@
+name: morning-brief
+
+on:
+  # TODO 4.1 (MODULE.md §9.3): add a daily schedule for 06:45 Asia/Manila.
+  #   Cron times are UTC, and Manila is UTC+8, so 06:45 PHT is 22:45 UTC the day before.
+  #   schedule:
+  #     - cron: "<minute> <hour> * * *"
+  workflow_dispatch: {}     # the manual "Run workflow" button
+
+jobs:
+  brief:
+    # The schedule stays off until you set the repo variable MORNING_BRIEF_ENABLED=true
+    # (Settings > Secrets and variables > Actions > Variables). The manual button always works.
+    if: github.event_name == 'workflow_dispatch' || vars.MORNING_BRIEF_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+      - run: uv pip install --system -r requirements.txt
+      - name: Run the brief
+        run: |
+          echo "$GOOGLE_CREDENTIALS" > credentials.json
+          echo "$GOOGLE_TOKEN" > token.json
+          python main.py
+        env:
+          # TODO 4.2 (MODULE.md §9.2-9.3): pass each secret in, one line each, like:
+          #   SECRET_NAME: ${{ secrets.SECRET_NAME }}
+          # You need: ANTHROPIC_API_KEY, TODOIST_API_TOKEN, TELEGRAM_BOT_TOKEN,
+          #           TELEGRAM_CHAT_ID, GOOGLE_CREDENTIALS, GOOGLE_TOKEN
+          BRIEF_NAME: ${{ vars.BRIEF_NAME }}
+          GOOGLE_OAUTH_NONINTERACTIVE: "true"   # fail fast instead of waiting for a browser
