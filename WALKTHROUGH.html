@@ -30,6 +30,10 @@
   --fig-edge: #8a93a8;
   --fig-mid: #c1c7d3;
   --fig-lo: #e2e6ed;
+  --g-code: #2b59c3;
+  --g-agent: #a85d00;
+  --g-cloud: #0d7d72;
+  --g-gh: #7c3fd0;
   --font-display: "Lexend", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --font-body: "Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
@@ -39,7 +43,7 @@
     --bg: #0a0f1d; --surface: #111a2d; --ink: #e8ecf4; --muted: #9aa5bd; --line: #24304a;
     --accent: #93a6ff; --accent-soft: #1a2546; --code-bg: #060a14; --code-fg: #dde4f2; --code-dim: #7c88a3;
     --done: #45c98d; --bad: #ff8a7a; --warn-bg: #2a2010; --warn-fg: #f2c878; --warn-line: #5a4419;
-    --fig-plate: #111a2d; --fig-hi: #93a6ff; --fig-edge: #6b7792; --fig-mid: #3b4661; --fig-lo: #253049;
+    --fig-plate: #111a2d; --fig-hi: #93a6ff; --fig-edge: #6b7792; --fig-mid: #3b4661; --fig-lo: #253049; --g-code: #8aa8ff; --g-agent: #f2b14c; --g-cloud: #4fd6c4; --g-gh: #c7a2ff;
     color-scheme: dark;
   }
 }
@@ -47,7 +51,7 @@
   --bg: #0a0f1d; --surface: #111a2d; --ink: #e8ecf4; --muted: #9aa5bd; --line: #24304a;
   --accent: #93a6ff; --accent-soft: #1a2546; --code-bg: #060a14; --code-fg: #dde4f2; --code-dim: #7c88a3;
   --done: #45c98d; --bad: #ff8a7a; --warn-bg: #2a2010; --warn-fg: #f2c878; --warn-line: #5a4419;
-    --fig-plate: #111a2d; --fig-hi: #93a6ff; --fig-edge: #6b7792; --fig-mid: #3b4661; --fig-lo: #253049;
+    --fig-plate: #111a2d; --fig-hi: #93a6ff; --fig-edge: #6b7792; --fig-mid: #3b4661; --fig-lo: #253049; --g-code: #8aa8ff; --g-agent: #f2b14c; --g-cloud: #4fd6c4; --g-gh: #c7a2ff;
   color-scheme: dark;
 }
 
@@ -203,7 +207,7 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var
 .arch-svg .lab { cursor: pointer; transition: opacity 260ms; }
 .arch-svg .ln { font: 600 14.5px var(--font-display); fill: var(--ink); transition: fill 260ms; }
 .arch-svg .lf { font: 10.5px var(--font-mono); fill: var(--muted); }
-.arch-svg .lab.on .ln { fill: var(--fig-hi); }
+.arch-svg .lab.on .ln { fill: var(--g, var(--fig-hi)); }
 .arch-svg .lab.bad .ln { fill: var(--bad); }
 .arch-svg .lab.ghost { opacity: 0.3; }
 .arch-svg .lp { font: 600 10.5px var(--font-mono); fill: var(--muted); letter-spacing: 0.18em; }
@@ -272,6 +276,36 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var
 .arch-adds b { font: 11.5px var(--font-mono); color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-right: 6px; }
 .arch-adds span { font-size: 15px; padding: 4px 12px; border-radius: 999px; background: var(--accent-soft); }
 @media (max-width: 520px) { .arch-card { padding: 20px 18px; } .arch-one { font-size: 17.5px; } .arch-watch { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+
+/* Four families: each has its own colour, and its own shape on the figure */
+.k-code { --g: var(--g-code); }
+.k-agent { --g: var(--g-agent); }
+.k-cloud { --g: var(--g-cloud); }
+.k-gh { --g: var(--g-gh); }
+.arch-svg [class*="k-"] .sil { stroke: color-mix(in srgb, var(--g) 60%, var(--fig-edge)); fill: color-mix(in srgb, var(--g) 7%, var(--fig-plate)); }
+.arch-svg [class*="k-"] .hi { stroke: var(--g); stroke-width: 1.8; fill: color-mix(in srgb, var(--g) 12%, var(--fig-plate)); }
+.arch-svg [class*="k-"] .lo { stroke: var(--fig-lo); fill: var(--fig-plate); }
+.arch-svg [class*="k-"] .bad { stroke: var(--bad); stroke-width: 1.8; fill: color-mix(in srgb, var(--bad) 10%, var(--fig-plate)); }
+.arch-svg .lid { stroke: color-mix(in srgb, var(--g) 40%, var(--fig-lo)); fill: color-mix(in srgb, var(--g) 24%, var(--fig-plate)); }
+.arch-svg .lid.off { stroke: var(--fig-lo); fill: var(--fig-plate); }
+.arch-svg .mark { stroke: color-mix(in srgb, var(--g) 80%, var(--fig-edge)); }
+.arch-svg .orbit { stroke: none; fill: var(--g); }
+.arch-svg .orbit.off { fill: var(--fig-lo); }
+
+.arch-legend { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 700px) { .arch-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.arch-leg { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 56px minmax(0, 1fr); align-items: center; gap: 12px; padding: 12px 14px 12px 10px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); transition: border-color 200ms, background-color 200ms; }
+.arch-leg:hover, .arch-leg[aria-pressed="true"] { border-color: var(--g); background: color-mix(in srgb, var(--g) 9%, var(--surface)); }
+.arch-leg:focus-visible { outline: 2px solid var(--g); outline-offset: 2px; }
+.arch-leg > span { min-width: 0; }
+.arch-leg b { display: block; font: 600 15.5px/1.25 var(--font-display); color: var(--ink); }
+.arch-leg small { display: block; margin-top: 3px; font-size: 14px; line-height: 1.35; color: var(--muted); }
+.arch-svg.arch-glyph { min-width: 0; width: 56px; height: 44px; }
+.arch-svg.arch-glyph.line { width: 40px; height: 12px; }
+.arch-callnote { display: flex; align-items: center; gap: 10px; margin: -10px 0 0; font-size: 14.5px; color: var(--muted); }
+.arch-kicker.sw::before, .arch-btn.sw::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 3px; background: var(--g); margin-right: 8px; vertical-align: 0.02em; }
+.k-gh.sw::before { border-radius: 50%; }
+.k-agent.sw::before { border-radius: 50%; background: none; box-shadow: inset 0 0 0 2px var(--g); }
 </style>
 
 </head>
@@ -326,13 +360,13 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 48px; color: var
     <span class="arch-sr" id="arch-live" aria-live="polite"></span>
   </div>
 
-  <ul class="arch-key" id="arch-key" aria-label="How to read the figure">
-    <li data-kind="code"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>Your code</li>
-    <li data-kind="agent"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>The agent loop</li>
-    <li data-kind="cloud"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>A cloud API</li>
-    <li data-kind="gh"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>GitHub</li>
-    <li data-kind="link"><svg viewBox="0 0 34 26" aria-hidden="true"></svg>A call</li>
-  </ul>
+  <div class="arch-legend" id="arch-key" role="group" aria-label="Four kinds of parts. Point at one to light up its parts.">
+    <button type="button" class="arch-leg k-code" data-group="code" aria-pressed="false"><svg class="arch-svg arch-glyph" viewBox="0 0 56 44" aria-hidden="true"></svg><span><b>Your code</b><small>Python you write</small></span></button>
+    <button type="button" class="arch-leg k-agent" data-group="agent" aria-pressed="false"><svg class="arch-svg arch-glyph" viewBox="0 0 56 44" aria-hidden="true"></svg><span><b>The agent loop</b><small>Claude and tools, on repeat</small></span></button>
+    <button type="button" class="arch-leg k-cloud" data-group="cloud" aria-pressed="false"><svg class="arch-svg arch-glyph" viewBox="0 0 56 44" aria-hidden="true"></svg><span><b>Cloud APIs</b><small>Services you call</small></span></button>
+    <button type="button" class="arch-leg k-gh" data-group="gh" aria-pressed="false"><svg class="arch-svg arch-glyph" viewBox="0 0 56 44" aria-hidden="true"></svg><span><b>GitHub</b><small>Runs it every morning</small></span></button>
+  </div>
+  <p class="arch-callnote"><svg class="arch-svg arch-glyph line" viewBox="0 0 40 12" aria-hidden="true"><path class="lk" d="M2 6L38 6"></path><circle class="dot" cx="20" cy="6" r="2.6"></circle></svg>A dashed line is a call between two parts.</p>
 
   <div class="arch-modes" role="group" aria-label="Diagram mode">
     <button class="arch-btn" type="button" data-mode="explore" aria-pressed="true">Explore</button>
@@ -1177,6 +1211,8 @@ gh run watch -R $repo</code></pre></div>
   LINKS.forEach(function (L) { L[2] = L[2].map(function (q) { return [q[0] * K, q[1] * K]; }); });
   PLATES.forEach(function (p) { p.x0 *= K; p.y0 *= K; p.x1 *= K; p.y1 *= K; });
   var ORDER = ["cron", "secrets", "main", "instructions", "agent", "claude", "caltool", "gcal", "todotool", "todoist", "log", "guards", "deliver", "telegram"];
+  var GROUP_OF = { agent: "agent", claude: "cloud", gcal: "cloud", todoist: "cloud", telegram: "cloud", cron: "gh", secrets: "gh" };
+  TILES.forEach(function (t) { t.group = GROUP_OF[t.id] || "code"; });
   var BY = {};
   TILES.forEach(function (t) { BY[t.id] = t; });
 
@@ -1184,14 +1220,18 @@ gh run watch -R $repo</code></pre></div>
   /* ---------- What each part is (shown in the card) ---------- */
   var SAMPLE = "Morning brief · 2026-10-16\n⏰ Standup at 9:30 AM. Leave by 9:00.\n📅 4 meetings. Free 10:30 AM–12:30 PM.\n✅ Finish the Q4 budget draft.\n⚠️ Overdue: venue deposit.\n💡 2:00 and 2:30 PM calls are back to back.";
   var D = {
+    g_code: { kind: "Family", title: "Your code", one: "The Python you write. It runs on GitHub's machine every morning.", file: "main.py, brief/", when: "Phases 0 – 3" },
+    g_agent: { kind: "Family", title: "The agent loop", one: "Claude asks for a tool, your code runs it, Claude reads the result. Repeat until done.", file: "brief/agent.py", when: "Phases 0 – 2" },
+    g_cloud: { kind: "Family", title: "Cloud APIs", one: "Services on the internet. Your code calls them with a key.", file: "Claude, Google Calendar, Todoist, Telegram", when: "Phases 0 – 3" },
+    g_gh: { kind: "Family", title: "GitHub", one: "Starts the job every morning and keeps your keys safe.", file: ".github/workflows/brief.yml", when: "Phase 4" },
     overview: { kind: "Start here", title: "Three layers", one: "<b>GitHub</b> wakes the job. <b>Your code</b> runs the agent. <b>Cloud APIs</b> supply the facts and deliver the brief.", hint: "Point at any part to learn more." },
     cron: { kind: "GitHub", title: "Daily trigger", one: "Starts the job every day at 6:45 AM, Manila time.", file: ".github/workflows/brief.yml", when: "Phase 4 · TODO 4.1", watch: "Cron runs on UTC, so <code>45 22 * * *</code> is 6:45 AM in Manila." },
     secrets: { kind: "GitHub", title: "Secrets", one: "Hands your six keys to the job, encrypted.", file: "Repo Settings → Secrets", when: "Phase 4 · TODO 4.2", watch: "Run the schedule from a private repo." },
     main: { kind: "Your code", title: "main.py", one: "Sets today's time window, runs the agent, and sends the result.", file: "main.py", when: "Phase 2 · TODO 2.5 – 2.7", watch: "Always pass <code>+08:00</code>, or the day shifts by 8 hours." },
     instructions: { kind: "Your code", title: "Instructions", one: "The rules for Claude: five bullets, one line each, facts only.", file: "brief/prompt.py", when: "Phase 2 · TODO 2.3" },
-    agent: { kind: "Agno", title: "The agent", one: "A loop. Claude asks for a tool, your code runs it, and Claude reads the result.", file: "brief/agent.py", when: "Phase 1 – 2 · TODO 1.2, 2.4", watch: "Agno doesn't raise errors. The guards catch them." },
+    agent: { kind: "The agent loop", title: "The agent", one: "A loop. Claude asks for a tool, your code runs it, and Claude reads the result.", file: "brief/agent.py", when: "Phase 1 – 2 · TODO 1.2, 2.4", watch: "Agno doesn't raise errors. The guards catch them." },
     claude: { kind: "Cloud API", title: "Claude", one: "Decides which tool to call, then writes the brief.", file: "claude-sonnet-5-5", when: "Phase 0", cost: "About $0.04 a run" },
-    caltool: { kind: "Agno", title: "Calendar tool", one: "Reads today's events. It can't change anything.", file: "brief/tools.py", when: "Phase 1 · TODO 1.1" },
+    caltool: { kind: "Your code", title: "Calendar tool", one: "Reads today's events. It can't change anything.", file: "brief/tools.py", when: "Phase 1 · TODO 1.1" },
     gcal: { kind: "Cloud API", title: "Google Calendar", one: "Your events. You sign in once, and the saved token is reused.", file: "scripts/google_login.py", when: "Phase 1", watch: "Publish the consent screen, or the sign-in expires after 7 days." },
     todotool: { kind: "Your code", title: "To-do tool", one: "Gets today's and overdue to-dos, most urgent first.", file: "brief/tools.py", when: "Phase 0 · TODO 0.1" },
     todoist: { kind: "Cloud API", title: "Todoist", one: "Your to-do list.", file: "Filter: today | overdue", when: "Phase 0" },
@@ -1321,16 +1361,18 @@ gh run watch -R $repo</code></pre></div>
   }
 
   TILES.forEach(function (t) {
-    t.ring = rrect(t.x - t.h, t.y - t.h, t.x + t.h, t.y + t.h, 4.5, 6);
-    t.inner = rrect(t.x - t.h + 2.2, t.y - t.h + 2.2, t.x + t.h - 2.2, t.y + t.h - 2.2, 2.3, 6);
+    var r = t.group === "gh" ? t.h : t.group === "agent" ? 7 : 4.5, n = t.group === "gh" ? 12 : 6;
+    t.ring = rrect(t.x - t.h, t.y - t.h, t.x + t.h, t.y + t.h, r, n);
+    t.inner = rrect(t.x - t.h + 2.2, t.y - t.h + 2.2, t.x + t.h - 2.2, t.y + t.h - 2.2, Math.max(0.3, r - 2.2), n);
     t.sp = { x: t.rest, v: 0, t: t.rest, k: 70, c: 14 };
-    t.g = el("g", { "data-id": t.id }, gTiles);
+    t.g = el("g", { "data-id": t.id, class: "k-" + t.group }, gTiles);
     t.fp = el("path", { class: "fp" }, t.g);
     t.parts = [];
-    var count = t.kind === "cloud" ? 2 : 1;
-    for (var i = 0; i < count; i++) t.parts.push({ sil: el("path", { class: "sil" }, t.g), cr: el("path", { class: "nf lo" }, t.g) });
-    t.mark = el("path", { class: "nf" }, t.g);
-    t.lab = el("g", { class: "lab", "data-id": t.id }, gLabels);
+    var count = t.group === "cloud" ? 3 : 1;
+    for (var i = 0; i < count; i++) t.parts.push({ sil: el("path", { class: "sil" }, t.g), cr: el("path", { class: "lid" }, t.g) });
+    t.mark = el("path", { class: "nf mark" }, t.g);
+    if (t.group === "agent") t.orbit = el("circle", { r: 2.8, class: "orbit" }, t.g);
+    t.lab = el("g", { class: "lab k-" + t.group, "data-id": t.id }, gLabels);
     t.ln = el("text", { class: "ln" }, t.lab);
     t.lf = el("text", { class: "lf" }, t.lab);
     t.ln.textContent = t.name; t.lf.textContent = t.file;
@@ -1388,10 +1430,12 @@ gh run watch -R $repo</code></pre></div>
     if (t.drawn !== undefined && Math.abs(t.drawn - L) < 0.004) return;
     t.drawn = L;
     var z0 = FLOOR + L, z1 = z0 + t.H, s;
-    if (t.kind === "cloud") {
-      var zm = z0 + t.H * 0.44, zn = z0 + t.H * 0.56;
-      s = slab(t.ring, t.inner, z0, zm); t.parts[0].sil.setAttribute("d", s.sil); t.parts[0].cr.setAttribute("d", s.crease);
-      s = slab(t.ring, t.inner, zn, z1); t.parts[1].sil.setAttribute("d", s.sil); t.parts[1].cr.setAttribute("d", s.crease);
+    if (t.group === "cloud") {
+      // a small server rack: three thin slabs with gaps
+      [[0, 0.28], [0.36, 0.64], [0.72, 1]].forEach(function (b, i) {
+        s = slab(t.ring, t.inner, z0 + t.H * b[0], z0 + t.H * b[1]);
+        t.parts[i].sil.setAttribute("d", s.sil); t.parts[i].cr.setAttribute("d", s.crease);
+      });
     } else {
       s = slab(t.ring, t.inner, z0, z1); t.parts[0].sil.setAttribute("d", s.sil); t.parts[0].cr.setAttribute("d", s.crease);
     }
@@ -1400,34 +1444,31 @@ gh run watch -R $repo</code></pre></div>
     placeLabel(t, z0);
   }
 
-  // Key glyphs: the same drawing at a tiny scale
+  // Legend glyphs: each family drawn the same way as on the figure
   (function drawKey() {
     var key = document.getElementById("arch-key");
     if (!key) return;
     var saved = { S: C.S, ox: C.ox, oy: C.oy };
-    C.S = 0.62; C.ox = 17; C.oy = 16;
-    key.querySelectorAll("li").forEach(function (li) {
-      var kind = li.getAttribute("data-kind"), box = li.querySelector("svg");
-      box.setAttribute("class", "arch-svg");
-      box.style.minWidth = "0"; box.style.width = "34px";
-      if (kind === "link") { el("path", { d: "M3 13L31 13", class: "lk" }, box); el("circle", { cx: 17, cy: 13, r: 2.6, class: "dot" }, box); return; }
-      var ring = rrect(-11, -11, 11, 11, 4, 5), inner = rrect(-9, -9, 9, 9, 2, 5), H = kind === "agent" ? 17 : kind === "cloud" ? 15 : 10;
-      if (kind === "cloud") {
-        var a = slab(ring, inner, 0, 6.6), b = slab(ring, inner, 8.4, 15);
-        el("path", { d: a.sil, class: "sil" }, box); el("path", { d: a.crease, class: "nf lo" }, box);
-        el("path", { d: b.sil, class: "sil" }, box); el("path", { d: b.crease, class: "nf lo" }, box);
-      } else {
-        var s = slab(ring, inner, 0, H);
-        el("path", { d: s.sil, class: "sil" }, box); el("path", { d: s.crease, class: "nf lo" }, box);
-        var m = markPath({ kind: kind === "gh" ? "gh" : kind, id: kind === "gh" ? "cron" : "", x: 0, y: 0, h: 11 }, H);
-        if (m) el("path", { d: m, class: "nf" }, box);
-      }
+    C.S = 1.25; C.ox = 28; C.oy = 31;
+    key.querySelectorAll("[data-group]").forEach(function (b) {
+      var grp = b.getAttribute("data-group"), box = b.querySelector("svg");
+      var g = el("g", { class: "k-" + grp }, box);
+      var h = 12, r = grp === "gh" ? h : grp === "agent" ? 6 : 4, n = grp === "gh" ? 12 : 6;
+      var ring = rrect(-h, -h, h, h, r, n), inner = rrect(-h + 2.2, -h + 2.2, h - 2.2, h - 2.2, Math.max(0.3, r - 2.2), n);
+      var H = grp === "agent" ? 15 : grp === "cloud" ? 14 : grp === "gh" ? 7 : 9;
+      var bands = grp === "cloud" ? [[0, 0.28], [0.36, 0.64], [0.72, 1]] : [[0, 1]];
+      bands.forEach(function (bd) {
+        var sl = slab(ring, inner, H * bd[0], H * bd[1]);
+        el("path", { d: sl.sil, class: "sil" }, g); el("path", { d: sl.crease, class: "lid" }, g);
+      });
+      var m = markPath({ kind: grp === "gh" ? "gh" : grp === "agent" ? "agent" : "code", id: grp === "gh" ? "cron" : "", x: 0, y: 0, h: h }, H);
+      if (m) el("path", { d: m, class: "nf mark" }, g);
     });
     C.S = saved.S; C.ox = saved.ox; C.oy = saved.oy;
   })();
 
   /* ---------- State ---------- */
-  var st = { mode: "explore", hover: null, pin: null, scen: 0, step: 0, playing: false, phase: 2 };
+  var st = { mode: "explore", hover: null, pin: null, scen: 0, step: 0, playing: false, phase: 2, group: null, groupPin: null };
   var Q = [];
   var read = document.getElementById("arch-read"), live = document.getElementById("arch-live");
   function say(short, long) {
@@ -1454,6 +1495,9 @@ gh run watch -R $repo</code></pre></div>
       if (f) {
         var d = hops(f); bright[f] = 1;
         TILES.forEach(function (t) { if (d[t.id] === 0) map[t.id] = [16, 0]; else if (d[t.id] === 1) { map[t.id] = [5, 1]; near[t.id] = 1; } });
+      } else if (st.group) {
+        var k = 0;
+        ORDER.forEach(function (id) { if (BY[id].group === st.group) { bright[id] = 1; map[id] = [10, k++]; } });
       } else bright.agent = 1;
     } else if (st.mode === "run") {
       var s = curStep();
@@ -1466,10 +1510,12 @@ gh run watch -R $repo</code></pre></div>
     }
     setTargets(map, st.mode === "explore" ? 70 : 60);
     TILES.forEach(function (t) {
-      var g = ghost(t), cls = bad[t.id] ? "bad" : bright[t.id] ? "hi" : g ? "lo" : "sil";
-      t.parts.forEach(function (p) { p.sil.setAttribute("class", cls); });
-      t.mark.setAttribute("class", g ? "nf lo" : "nf");
-      t.lab.setAttribute("class", "lab" + (bad[t.id] ? " bad" : bright[t.id] ? " on" : "") + (g ? " ghost" : ""));
+      var dim = st.mode === "explore" && !f && st.group && t.group !== st.group;
+      var g = ghost(t) || dim, cls = bad[t.id] ? "bad" : bright[t.id] ? "hi" : g ? "lo" : "sil";
+      t.parts.forEach(function (p) { p.sil.setAttribute("class", cls); p.cr.setAttribute("class", g ? "lid off" : "lid"); });
+      t.mark.setAttribute("class", g ? "nf lo" : "nf mark");
+      if (t.orbit) t.orbit.setAttribute("class", g ? "orbit off" : "orbit");
+      t.lab.setAttribute("class", "lab k-" + t.group + (bad[t.id] ? " bad" : bright[t.id] ? " on" : "") + (g ? " ghost" : ""));
     });
     BY.agent.ln.textContent = st.mode === "phase" && st.phase === 0 ? "Your loop" : "The agent";
     LINKS.forEach(function (L) {
@@ -1538,6 +1584,16 @@ gh run watch -R $repo</code></pre></div>
   /* ---------- Frame loop (one loop, sleeps when nothing moves) ---------- */
   var raf = 0, last = 0;
   function wake() { if (!raf) raf = requestAnimationFrame(tick); }
+  var onScreen = true;
+  if ("IntersectionObserver" in window) new IntersectionObserver(function (e) { onScreen = e[0].isIntersecting; if (onScreen) wake(); }, { rootMargin: "80px" }).observe(fig);
+  function orbitTick(now) {
+    var t = BY.agent;
+    if (!t.orbit) return false;
+    var a = RM ? -2.2 : now * 0.0021, z = FLOOR + t.sp.x + t.H, r = t.h * 0.58;
+    var q = P(t.x + r * Math.cos(a), t.y + r * Math.sin(a), z);
+    t.orbit.setAttribute("cx", r2(q[0])); t.orbit.setAttribute("cy", r2(q[1]));
+    return !RM && onScreen && fig.offsetParent !== null && !ghost(t);
+  }
   function tick(now) {
     raf = 0;
     var dt = last ? Math.min(0.05, (now - last) / 1000) : 1 / 60;
@@ -1547,6 +1603,7 @@ gh run watch -R $repo</code></pre></div>
     if (Q.length) moving = true;
     TILES.forEach(function (t) { if (stepSpring(t.sp, dt)) moving = true; drawTile(t); });
     if (animTick(now)) moving = true;
+    if (orbitTick(now)) moving = true;
     if (moving) raf = requestAnimationFrame(tick); else last = 0;
   }
 
@@ -1559,13 +1616,15 @@ gh run watch -R $repo</code></pre></div>
     return "<dl class=\"arch-facts\">" + rows.map(function (r) { return "<dt>" + r[0] + "</dt><dd>" + r[1] + "</dd>"; }).join("") + "</dl>";
   }
   function renderCard() {
-    var f = focusId(), d = D[f] || D.overview;
-    var h = "<p class=\"arch-kicker\">" + d.kind + "</p><h3>" + d.title + "</h3><p class=\"arch-one\">" + d.one + "</p>";
+    var f = focusId(), key = f || (st.group ? "g_" + st.group : "overview"), d = D[key];
+    var grp = f ? BY[f].group : st.group;
+    var h = "<p class=\"arch-kicker" + (grp ? " sw k-" + grp : "") + "\">" + d.kind + "</p><h3>" + d.title + "</h3><p class=\"arch-one\">" + d.one + "</p>";
     h += facts([["Where", d.file ? "<code>" + esc(d.file) + "</code>" : ""], ["Built in", d.when], ["Cost", d.cost]]);
     if (d.bubble) h += "<p class=\"arch-bubble\">" + esc(d.bubble) + "</p>";
     if (d.watch) h += "<p class=\"arch-watch\"><span>Watch out</span><span>" + d.watch + "</span></p>";
     if (d.hint) h += "<p class=\"arch-hint\">" + d.hint + "</p>";
-    if (card.getAttribute("data-for") !== (f || "overview")) { card.innerHTML = h; card.setAttribute("data-for", f || "overview"); }
+    if (card.getAttribute("data-for") !== key) { card.innerHTML = h; card.setAttribute("data-for", key); }
+    keyEl.querySelectorAll("[data-group]").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-group") === st.groupPin ? "true" : "false"); });
     chipsEl.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === st.pin ? "true" : "false"); });
     if (f) say(f + " · phase " + BY[f].phase, d.title + ". " + d.one.replace(/<[^>]+>/g, ""));
     else say("rest", "");
@@ -1601,7 +1660,7 @@ gh run watch -R $repo</code></pre></div>
   /* ---------- Controls ---------- */
   var chipsEl = document.getElementById("arch-chips"), scenEl = document.getElementById("arch-scen"), stepsEl = document.getElementById("arch-steps"), phEl = document.getElementById("arch-phases");
   chipsEl.innerHTML = "<div class=\"arch-chiprow\">" + ORDER.map(function (id) {
-    return "<button class=\"arch-btn sm\" type=\"button\" data-id=\"" + id + "\" aria-pressed=\"false\">" + D[id].title + "</button>";
+    return "<button class=\"arch-btn sm sw k-" + BY[id].group + "\" type=\"button\" data-id=\"" + id + "\" aria-pressed=\"false\">" + D[id].title + "</button>";
   }).join("") + "</div>";
   scenEl.innerHTML = SCEN.map(function (s, i) { return "<button class=\"arch-btn sm\" type=\"button\" data-s=\"" + i + "\" aria-pressed=\"false\">" + s.name + "</button>"; }).join("");
   phEl.innerHTML = PH.map(function (p) { return "<button class=\"arch-btn sm sq-btn\" type=\"button\" data-p=\"" + p.n + "\" aria-pressed=\"false\" aria-label=\"Phase " + p.n + ": " + p.title + "\">" + p.n + "</button>"; }).join("");
@@ -1632,7 +1691,7 @@ gh run watch -R $repo</code></pre></div>
   function syncPlay() { playBtn.textContent = st.playing ? "Pause" : "Play"; playBtn.setAttribute("aria-pressed", st.playing ? "true" : "false"); }
 
   document.querySelectorAll(".arch-modes [data-mode]").forEach(function (b) { b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); }); });
-  chipsEl.addEventListener("click", function (e) { var b = e.target.closest("button[data-id]"); if (!b) return; var id = b.getAttribute("data-id"); st.pin = st.pin === id ? null : id; refresh(); });
+  chipsEl.addEventListener("click", function (e) { var b = e.target.closest("button[data-id]"); if (!b) return; var id = b.getAttribute("data-id"); st.pin = st.pin === id ? null : id; st.group = st.groupPin = null; refresh(); });
   scenEl.addEventListener("click", function (e) { var b = e.target.closest("button[data-s]"); if (!b) return; st.scen = +b.getAttribute("data-s"); st.step = 0; renderSteps(); goStep(0); });
   stepsEl.addEventListener("click", function (e) { var b = e.target.closest("button[data-i]"); if (!b) return; st.playing = false; syncPlay(); goStep(+b.getAttribute("data-i")); });
   phEl.addEventListener("click", function (e) { var b = e.target.closest("button[data-p]"); if (!b) return; st.phase = +b.getAttribute("data-p"); refresh(); });
@@ -1644,6 +1703,21 @@ gh run watch -R $repo</code></pre></div>
     if (st.playing && st.step >= SCEN[st.scen].steps.length - 1) goStep(0);
     else if (st.playing && A) { if (A.i >= A.segs.length) A.doneAt = performance.now() - DWELL + 300; }
     wake();
+  });
+
+  var keyEl = document.getElementById("arch-key");
+  function setGroup(g) {
+    if (st.group === g) return;
+    st.group = g;
+    if (st.mode !== "explore") setMode("explore"); else refresh();
+  }
+  keyEl.querySelectorAll("[data-group]").forEach(function (b) {
+    var g = b.getAttribute("data-group");
+    b.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") { st.pin = null; setGroup(g); } });
+    b.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") setGroup(st.groupPin); });
+    b.addEventListener("focus", function () { st.pin = null; setGroup(g); });
+    b.addEventListener("blur", function () { setGroup(st.groupPin); });
+    b.addEventListener("click", function () { st.pin = null; st.groupPin = st.groupPin === g ? null : g; st.group = null; setGroup(st.groupPin || g); if (!st.groupPin) { st.group = null; refresh(); } });
   });
 
   /* ---------- Pointer and keyboard ---------- */
