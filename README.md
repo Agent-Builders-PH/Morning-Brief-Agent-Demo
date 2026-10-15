@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/ab-logo-white.png">
+    <img src="assets/ab-logo-dark.png" alt="Agent Builders Philippines" width="320">
+  </picture>
+</p>
+
 # Morning Brief Agent: starter template
 
 **Agent Builders PH · Episode 1.** Build a personal agent that reads today's Google Calendar and Todoist to-dos every morning at 6:45 AM PHT and sends exactly five bullets to your phone on Telegram.
