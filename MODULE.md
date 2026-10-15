@@ -885,6 +885,16 @@ The scheduled run needs the same secrets as your `.env`, plus the two Google fil
 
 With the `gh` CLI (run from the project folder; values are read from your files, so nothing is typed into history):
 
+**Windows (PowerShell):**
+
+```powershell
+Get-Content credentials.json -Raw | gh secret set GOOGLE_CREDENTIALS
+Get-Content token.json -Raw | gh secret set GOOGLE_TOKEN
+gh secret set -f .env    # sets ANTHROPIC_API_KEY, TODOIST_API_TOKEN, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+```
+
+**macOS / Linux:**
+
 ```bash
 gh secret set GOOGLE_CREDENTIALS < credentials.json
 gh secret set GOOGLE_TOKEN < token.json
@@ -1075,7 +1085,7 @@ Run `uv pip install -r requirements.txt` again; it installs `tzdata`.
 Your `ANTHROPIC_API_KEY` is wrong or missing. Check `.env` (no quotes, no spaces). In Actions, check the secret.
 
 **`ToolFailure: fetch_all_events returned an error: Calendar authentication failed`**
-`token.json` is missing, expired or revoked. Run `python scripts/google_login.py` again. For Actions, update the secret afterwards: `gh secret set GOOGLE_TOKEN < token.json`. If this happens every 7 days, your consent screen is still in **Testing** (Setup 4.4 B5).
+`token.json` is missing, expired or revoked. Run `python scripts/google_login.py` again. For Actions, update the secret afterwards (PowerShell: `Get-Content token.json -Raw | gh secret set GOOGLE_TOKEN`; macOS/Linux: `gh secret set GOOGLE_TOKEN < token.json`). If this happens every 7 days, your consent screen is still in **Testing** (Setup 4.4 B5).
 
 **The browser shows "Access blocked: Morning Brief has not completed the Google verification process"**
 Your account isn't a test user and the app isn't published. Add yourself under **Audience → Test users**, or publish the app.
